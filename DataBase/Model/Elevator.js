@@ -54,7 +54,7 @@ class Elevator extends MongoDataElevator {
                 }).lean();
                 break;
             case this.FindType.NameElevator:
-                var res = await data.find({
+                var res = await data.findOne({
                     NameElevator: KeyWord // search query
                 }).lean();
                 break;

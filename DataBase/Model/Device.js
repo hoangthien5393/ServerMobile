@@ -65,7 +65,7 @@ class Device extends MongoDataDevice {
                 }).lean();
                 break;
             case this.FindType.NameDevice:
-                var res = await data.find({
+                var res = await data.findOne({
                     NameDevice: KeyWord // search query
                 }).lean();
                 break;

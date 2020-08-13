@@ -68,12 +68,12 @@ let UserSchema = new mongoose.Schema({
                         }).lean();
                     break;
                     case this.FindType.IDDevice:
-                        var res = await data.find({
+                        var res = await data.findOne({
                             IDDevice: KeyWord // search query
                         }).lean();
                     break;
                     case this.FindType.UserName:
-                        var res = await data.find({
+                        var res = await data.findOne({
                             UserName: KeyWord // search query
                         }).lean();
                     break;

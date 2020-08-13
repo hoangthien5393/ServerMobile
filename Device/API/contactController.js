@@ -63,6 +63,9 @@ exports.QRCodeView = async function (req, res) {
         else if (req.params.Mode == "ID") {
             var result = await DataBase.mainQRCode.Find(req.params.Data, DataBase.mainQRCode.FindType.ID);
         }
+        else if (req.params.Mode == "IDProject") {
+            var result = await DataBase.mainQRCode.Find(req.params.Data, DataBase.mainQRCode.FindType.IDProject);
+        }
         else {
             var result = await DataBase.mainQRCode.Find(req.params.Data, DataBase.mainQRCode.FindType.All);
         }

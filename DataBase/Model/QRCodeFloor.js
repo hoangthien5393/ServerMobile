@@ -31,7 +31,7 @@ let QRCodeSchema = new mongoose.Schema({
     
       }
 
-      FindType = Object.freeze({"ID":1, "IDQRCode":2, "BuildingName":3, "All":4});
+      FindType = Object.freeze({"ID":1, "IDQRCode":2, "BuildingName":3, "All":4, "IDProject": 5});
     
       async save(dataIN, Mode){
         var data = mongoose.model('QRCode', QRCodeSchema);
@@ -66,8 +66,13 @@ let QRCodeSchema = new mongoose.Schema({
                         }).lean();
                     break;
                     case this.FindType.BuildingName:
-                        var res = await data.findOne({
+                        var res = await data.find({
                             BuildingName: KeyWord // search query
+                        }).lean();
+                    break;
+                    case this.FindType.IDProject:
+                        var res = await data.find({
+                            IDProject: KeyWord // search query
                         }).lean();
                     break;
                     case this.FindType.All:
